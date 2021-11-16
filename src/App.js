@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    height: '400px',
+    height: '460px',
     color: theme.palette.text.secondary,
   }
 }));
@@ -57,7 +57,7 @@ export default function ParaphrasingTool() {
     <div className={classes.root}>
       <CssBaseline />
       <Container component="main" className={classes.main} maxWidth="lg">
-        <Typography variant="h2" component="h1" gutterBottom style={{textAlign: "center"}}>
+        <Typography variant="h2" component="h1" gutterBottom style={{ textAlign: "center" }}>
           Paraphrasing Tool
         </Typography>
 
@@ -65,6 +65,9 @@ export default function ParaphrasingTool() {
           <Grid container spacing={3}>
             <Grid item xs={6}>
               <Paper elevation={3} className={classes.paper}>
+                <Typography variant="h6" style={{ fontWeight: 700, marginBottom: '10px' }}> New Text: {' '} </Typography>
+                <Divider variant="middle" />
+                <br />
                 <form className={classes.formRoot} noValidate autoComplete="off">
                   <TextField id="standard-basic"
                     label="New Text"
@@ -84,7 +87,7 @@ export default function ParaphrasingTool() {
                 <Typography variant="h6" style={{ fontWeight: 700, marginBottom: '10px' }}> Paraphrased Text: {' '} </Typography>
                 <Divider variant="middle" />
                 <br />
-                <Typography variant="p" style={{paddingBottom: 2}}>{apiResponseText}</Typography>
+                <Typography variant="p" style={{ paddingBottom: 2 }}>{apiResponseText}</Typography>
               </Paper>
             </Grid>
             <Grid item xs={12}>
