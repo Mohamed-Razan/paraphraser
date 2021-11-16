@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, CircularProgress, Box } from '@material-ui/core';
+import { Message } from '@material-ui/icons';
 import axios from 'axios';
 import config from '../config.json';
 
@@ -42,7 +43,7 @@ class SubmitButton extends Component {
                 {
                     loading ?
                         <CircularProgress color="primary" />
-                        : <Button onClick={this.handleSubmit} disabled={loading} variant="contained" color="primary" style={{ fontFamily: 'Poppins, sans-serif', fontSize: '16px' }}>Rewrite</Button>
+                        : <Button fullWidth onClick={this.handleSubmit} disabled={loading} variant="contained" color="primary" style={{ fontFamily: 'Poppins, sans-serif', fontSize: '16px' }}>{<Message />} &nbsp; To Rewrite</Button>
                 }
             </Box>
 

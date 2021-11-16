@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   primary: {
     '& > *': {
-      margin: theme.spacing(1),
+      margin: theme.spacing(0),
     },
   },
   main: {
@@ -51,14 +51,8 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    height: '200px',
+    height: '400px',
     color: theme.palette.text.secondary,
-  },
-  footer: {
-    padding: theme.spacing(3, 2),
-    marginTop: 'auto',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
   },
 }));
 
@@ -75,50 +69,43 @@ export default function ParaphrasingTool() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Container component="main" className={classes.main} maxWidth="md">
-        <Typography variant="h2" component="h1" gutterBottom>
+      <Container component="main" className={classes.main} maxWidth="lg">
+        <Typography variant="h2" component="h1" gutterBottom style={{textAlign: "center"}}>
           Paraphrasing Tool
         </Typography>
 
         <div className={classes.gridRoot}>
           <Grid container spacing={3}>
-            <Grid item xs={12}>
-            </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <Paper elevation={3} className={classes.paper}>
-
                 <form className={classes.formRoot} noValidate autoComplete="off">
                   <TextField id="standard-basic"
                     label="Insert the text you would like to rewrite here"
                     placeholder="I love it when AI does all the work for me"
                     multiline
-                    rows={1}
-                    rowsMax={10}
+                    rows={16}
                     onChange={(e) => setInputText(e.target.value)}
+                    variant="outlined"
+                    value={inputText}
                   />
                 </form>
-
+                <Typography variant="body2" color="textSecondary">Character Count: {inputText.length}</Typography>
               </Paper>
             </Grid>
-            <Grid item xs={5}>
-            </Grid>
-            <Grid item xs={2}>
-              <div className={classes.primary}>
-                <SubmitButton inputText={inputText} responseText={setResponseText} />
-              </div>
-            </Grid>
-            <Grid item xs={5}>
-            </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <Paper elevation={3} className={classes.paper}>
 
                 <Typography variant="h6" style={{ fontWeight: 700, marginBottom: '10px' }}> New Text: {' '} </Typography>
                 <Divider variant="middle" />
                 <br />
-                <Typography variant="h6" style={{paddingBottom: 2}}> {apiResponseText} </Typography>
+                <Typography variant="p" style={{paddingBottom: 2}}>{apiResponseText}</Typography>
               </Paper>
             </Grid>
-
+            <Grid item xs={12}>
+              <div className={classes.primary}>
+                <SubmitButton inputText={inputText} responseText={setResponseText} />
+              </div>
+            </Grid>
           </Grid>
         </div>
       </Container>
