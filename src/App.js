@@ -7,9 +7,11 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
+import { FileCopy } from '@material-ui/icons';
 
 import SubmitButton from './Submit/SubmitButton';
 import "./App.css"
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,12 +84,22 @@ export default function ParaphrasingTool() {
               </Paper>
             </Grid>
             <Grid item xs={6}>
-              <Paper elevation={3} className={classes.paper}>
+              <Paper elevation={3} className={classes.paper} style={{textAlign: "left"}}>
 
                 <Typography variant="h6" style={{ fontWeight: 700, marginBottom: '10px' }}> Paraphrased Text: {' '} </Typography>
                 <Divider variant="middle" />
                 <br />
                 <Typography variant="p" style={{ paddingBottom: 2 }}>{apiResponseText}</Typography>
+                <br />
+                <Button 
+                  variant="contained" 
+                  color="primary"
+                  disabled={apiResponseText === "Nothing here yet, enter some text in the box above"}
+                  onClick={() => {navigator.clipboard.writeText(apiResponseText)}}
+                  style={{marginTop: "10px"}}
+                >
+                  {<FileCopy />}
+                </Button>
               </Paper>
             </Grid>
             <Grid item xs={12}>

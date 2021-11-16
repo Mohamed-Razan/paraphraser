@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, CircularProgress, Box } from '@material-ui/core';
+import { Button, CircularProgress } from '@material-ui/core';
 import { Message } from '@material-ui/icons';
 import axios from 'axios';
 
@@ -38,13 +38,13 @@ class SubmitButton extends Component {
     render() {
         const { loading } = this.state;
         return (
-            <Box flexWrap="wrap" alignItems="center">
+            <div style={{textAlign: "center"}}>
                 {
                     loading ?
                         <CircularProgress color="primary" />
                         : <Button fullWidth onClick={this.handleSubmit} disabled={loading} variant="contained" color="primary" style={{ fontFamily: 'Poppins, sans-serif', fontSize: '16px' }}>{<Message />} &nbsp; To Rewrite</Button>
                 }
-            </Box>
+            </div>
 
         );
     }
