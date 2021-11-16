@@ -7,22 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 
 import SubmitButton from './Submit/SubmitButton';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary">
-      {'Copyright © '}
-      <Link color="inherit" href="https://rob-oconnor.com/paraphrasing-tool-api">
-        Paraphrasing Tool
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import "./App.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     height: '400px',
     color: theme.palette.text.secondary,
-  },
+  }
 }));
 
 export default function ParaphrasingTool() {
@@ -80,8 +67,7 @@ export default function ParaphrasingTool() {
               <Paper elevation={3} className={classes.paper}>
                 <form className={classes.formRoot} noValidate autoComplete="off">
                   <TextField id="standard-basic"
-                    label="Insert the text you would like to rewrite here"
-                    placeholder="I love it when AI does all the work for me"
+                    label="New Text"
                     multiline
                     rows={16}
                     onChange={(e) => setInputText(e.target.value)}
@@ -95,7 +81,7 @@ export default function ParaphrasingTool() {
             <Grid item xs={6}>
               <Paper elevation={3} className={classes.paper}>
 
-                <Typography variant="h6" style={{ fontWeight: 700, marginBottom: '10px' }}> New Text: {' '} </Typography>
+                <Typography variant="h6" style={{ fontWeight: 700, marginBottom: '10px' }}> Paraphrased Text: {' '} </Typography>
                 <Divider variant="middle" />
                 <br />
                 <Typography variant="p" style={{paddingBottom: 2}}>{apiResponseText}</Typography>
@@ -103,7 +89,7 @@ export default function ParaphrasingTool() {
             </Grid>
             <Grid item xs={12}>
               <div className={classes.primary}>
-                <SubmitButton inputText={inputText} responseText={setResponseText} />
+                <SubmitButton inputText={inputText} responseText={setResponseText} className={classes.submit} />
               </div>
             </Grid>
           </Grid>

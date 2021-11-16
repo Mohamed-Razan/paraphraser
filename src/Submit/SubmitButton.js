@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button, CircularProgress, Box } from '@material-ui/core';
 import { Message } from '@material-ui/icons';
 import axios from 'axios';
-import config from '../config.json';
 
 class SubmitButton extends Component {
 
