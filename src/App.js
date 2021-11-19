@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
+    backgroundColor: "rgb(240, 240, 240)"
   },
   gridRoot: {
     flexGrow: 1,
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   main: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },
   paper: {
@@ -59,7 +60,7 @@ export default function ParaphrasingTool() {
     <div className={classes.root}>
       <CssBaseline />
       <Container component="main" className={classes.main} maxWidth="lg">
-        <Typography variant="h2" component="h1" gutterBottom style={{ textAlign: "center" }}>
+        <Typography variant="h1" component="h1" gutterBottom style={{ textAlign: "center", fontFamily: "'Estonia', cursive" }}>
           Paraphrasing Tool
         </Typography>
 
